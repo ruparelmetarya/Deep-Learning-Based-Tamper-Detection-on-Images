@@ -1,9 +1,14 @@
-In case you want to test the pipeline, the following steps need to be taken:
+# Deep-Learning-Based-Tamper-Detection-on-Images
 
-1) Extract CNN training patches: as shown in `extract_patches.py`
+Tamper Detection/Forgery in Digital Images.
 
-2) Train CNN: open the `train_net.py` and change DATA_DIR to point to the patches path extracted from the previous step. Run the script, it will save the trained network as shown [here](https://github.com/kPsarakis/Image-Forgery-Detection-CNN/blob/9dc3f0468cf5f0161f2ac296ece98001a603c1ea/src/train_net.py#L30)
+Get the CASIA2 from here: [CASIA2](https://www.kaggle.com/sophatvathana/casia-dataset)
+Get MICC here: [MICC](http://lci.micc.unifi.it/labd/2015/01/copy-move-forgery-detection-and-localization/)
 
-3) Compute image features: as shown in `feature_extraction.py`. Here you will need to provide the trained CNN as input from the previous step. Change the path in the following [line](https://github.com/kPsarakis/Image-Forgery-Detection-CNN/blob/9dc3f0468cf5f0161f2ac296ece98001a603c1ea/src/feature_extraction.py#L8)
+Add the datasets to the drive in path 'Colab Notebooks'/CVDatasets/ or change paths in the tamper_detection.ipynb notebook.
 
-4) Run SVM cross-validation: change the features path in `svm_classification.py` at line 5 to point to the latest feature extraction. Run the script.
+All the experiments and runs are there in tamper_detection.ipynb
+
+models folder contains saved models, load and test your data on that.
+
+

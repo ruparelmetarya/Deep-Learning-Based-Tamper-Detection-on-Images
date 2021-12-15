@@ -5,10 +5,8 @@ import matplotlib.pyplot as plt
 import warnings
 
 from .extraction_utils import check_and_reshape, extract_all_patches, create_dirs, save_patches, find_tampered_patches
-from .mask_extraction import extract_masks
 
 warnings.filterwarnings('ignore')
-# from src.patch_extraction.mask_extraction import extract_masks
 
 
 class PatchExtractorCASIA:
@@ -63,20 +61,6 @@ class PatchExtractorCASIA:
         Main function which extracts all patches
         :return:
         """
-        # uncomment to extract masks
-        # mask_path = 'masks'
-        # if os.path.exists(mask_path) and os.path.isdir(mask_path):
-        #     if not os.listdir(mask_path):
-        #         print("Extracting masks")
-        #         extract_masks()
-        #         print("Masks extracted")
-        #     else:
-        #         print("Masks exist. Patch extraction begins...")
-        # else:
-        #     os.makedirs(mask_path)
-        #     print("Extracting masks")
-        #     extract_masks()
-        #     print("Masks extracted")
 
         # create necessary directories
         create_dirs(self.output_path)
