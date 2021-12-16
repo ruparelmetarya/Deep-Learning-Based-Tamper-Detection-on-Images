@@ -4,7 +4,7 @@ from cnn.cnn import CNN
 from cv2 import imread
 import numpy as np
 
-from src.feature_fusion.feature_vector_generation import get_patch_yi
+from feature_fusion.feature_vector_generation import get_patch_yi
 
 
 def get_feature_vector(image_path: str, model):

@@ -1,10 +1,10 @@
 import os
 
-from src.feature_fusion.feature_fusion import get_yi, get_y_hat
+from feature_fusion.feature_fusion import get_yi, get_y_hat
 
 import numpy as np
 import pandas as pd
-from src.feature_fusion.patch_extraction import get_images_and_labels, get_images_and_labels_nc, get_patches
+from feature_fusion.patch_extraction import get_images_and_labels, get_images_and_labels_nc, get_patches
 import torchvision.transforms as transforms
 from torch.autograd import Variable
 from skimage import io

@@ -1,5 +1,4 @@
 from patch_extraction.patch_extractor_casia import PatchExtractorCASIA
-from patch_extraction.patch_extractor_nc import PatchExtractorNC
 
 
 # CASIA Dataset
