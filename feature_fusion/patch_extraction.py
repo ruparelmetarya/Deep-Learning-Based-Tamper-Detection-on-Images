@@ -1,8 +1,9 @@
 import glob
 import cv2
 from skimage.util import view_as_windows
-
-from ..patch_extraction.extraction_utils import get_ref_df
+import sys
+sys.path.append("..")
+from patch_extraction.extraction_utils import get_ref_df
 
 
 def get_patches(image_mat, stride):
