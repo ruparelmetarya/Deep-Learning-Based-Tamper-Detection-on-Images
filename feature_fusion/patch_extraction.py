@@ -1,5 +1,6 @@
 import glob
 import cv2
+import numpy as np
 from skimage.util import view_as_windows
 import sys
 sys.path.append("..")
@@ -14,7 +15,7 @@ def get_patches(image_mat, stride):
     :returns: The patches
     """
     window_shape = (128, 128, 3)
-    windows = view_as_windows(image_mat, window_shape, step=stride)
+    windows = view_as_windows(np.array(image_mat), window_shape, step=stride)
     patches = []
     for m in range(windows.shape[0]):
         for n in range(windows.shape[1]):
