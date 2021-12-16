@@ -7,19 +7,6 @@ from skimage import io
 import PIL
 
 
-def get_ref_df():
-    """
-    Reads the csv files that links the NC2016 images with their masks.
-    :returns: All the reference directories
-    """
-    refs1 = pd.read_csv('../data/NC2016/reference/manipulation/NC2016-manipulation-ref.csv',
-                        delimiter='|')
-    refs2 = pd.read_csv('../data/NC2016/reference/removal/NC2016-removal-ref.csv', delimiter='|')
-    refs3 = pd.read_csv('../data/NC2016/reference/splice/NC2016-splice-ref.csv', delimiter='|')
-    all_refs = pd.concat([refs1, refs2, refs3], axis=0)
-    return all_refs
-
-
 def delete_prev_images(dir_name):
     """
     Deletes all the file in a directory.
@@ -127,9 +114,6 @@ def create_dirs(output_path):
             os.makedirs(output_path + '/tampered')
 
 
-class NotSupportedDataset(Exception):
-    pass
-
 
 def find_tampered_patches(image, im_name, mask, window_shape, stride, dataset, patches_per_image):
     """
@@ -148,10 +132,6 @@ def find_tampered_patches(image, im_name, mask, window_shape, stride, dataset, p
 
     if dataset == 'casia2':
         mask_patches = view_as_windows(mask, window_shape, step=stride)
-    elif dataset == 'nc16':
-        mask_patches = view_as_windows(mask, (128, 128), step=stride)
-    else:
-        raise NotSupportedDataset('The datasets supported are casia2 and nc16')
 
     tampered_patches = []
     # find tampered patches
@@ -164,9 +144,6 @@ def find_tampered_patches(image, im_name, mask, window_shape, stride, dataset, p
             total = num_ones + num_zeros
             if dataset == 'casia2':
                 if num_zeros <= 0.99 * total:
-                    tampered_patches += [(im, ma)]
-            elif dataset == 'nc16':
-                if 0.80 * total >= num_ones >= 0.20 * total:
                     tampered_patches += [(im, ma)]
 
     # if patches are less than the given number then take the minimum possible
